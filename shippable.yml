@@ -1,7 +1,6 @@
 # Language setting
 language: node_js
 
-PN= something
 # Version number
 node_js:
   - 0.10.25
@@ -16,7 +15,7 @@ services:
 env:
   - XUNIT_FILE=shippable/testresults/result.xml
 before_install:
- - travis_retry mongo test --eval "\" db.dropDatabase(); db.foo.find(); echo $PN\"";
+ - travis_retry mongo test --eval "\" db.dropDatabase(); db.foo.find(); echo $XUNIT_FILE\"";
 # Create directories for test and coverage reports
 before_script:
   - mkdir -p shippable/testresults
